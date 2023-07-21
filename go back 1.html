@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome Folks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #46b1c1;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(155, 13, 32, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 2px;
+      border-radius: 5px;
+      border: 1px solid #000000;
+    }
+
+    .form-group button {
+      width: 50%;
+      padding: 10px;
+      background-color: #000000;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .register-link {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Login Please!</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Email:</label>
+        <input type="text" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">Get In</button>
+      </div>
+    </form>
+    <p class="register-link">Don't have an account? <a href="registration.html">Register</a></p>
+  </div>
+
+  <script src="loginpage.js"> 
+    const loginForm = document.getElementById("loginForm");
+
+     loginForm.addEventListener("submit", function (event) {
+       event.preventDefault();
+
+       const email = document.getElementById("email").value;
+       const password = document.getElementById("password").value;
+
+      
+       const storedEmail = localStorage.getItem('email');
+       const storedPassword = localStorage.getItem('password');
+
+       if (email === storedEmail && password === storedPassword) {
+         alert("Login successful!");
+         window.location.href = "Calculator.html";
+       } else {
+         alert("Invalid email or password. Please try again.");
+       }
+     });
+
+  </script>
+  
+</body>
+
+</html>
